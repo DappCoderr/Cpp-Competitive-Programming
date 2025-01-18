@@ -24,7 +24,6 @@ int main(){
     }
 
     array[index] = 0;
-     
     int large = findTheLargestElement(array, size);
 
     cout<<"Second Largest: "<< large;
