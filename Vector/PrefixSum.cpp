@@ -1,34 +1,37 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-#include<vector>
+#include <vector>
 
-int main(){
-    // [1,2,3,4,5]
-    // 
-    vector<int> v;
+int main() {
+
+    // Declare a vector to store the input integers
+    vector<int> v; 
+
+    // Get the size of the input from the user
     int size;
-    cout<<"Enter input: "<<endl;
-    cin>>size;
+    cout << "Enter input: " << endl;
+    cin >> size;
 
-    for(int i=0; i<size; i++){
+    // Read the input integers and store them in the vector
+    for (int i = 0; i < size; i++) {
         int element;
-        cin>>element;
-        v.push_back(element);
-    }
-    int i=0, sum=0; 
-    while(i<=size-1){
-        if(i == 0){
-            v[i] = sum + v[i];
-            sum = v[i];
-            i++;
-        }else{
-            v[i] = v[i] + sum;
-            sum = v[i];
-            i++;
-        }
+        cin >> element;
+        v.push_back(element); 
     }
 
-    for(int i=0; i<size; i++){
-        cout<<v[i]<<" ";
+    // Calculate the prefix sum of the vector
+    int sum = 0; 
+    for (int i = 0; i < size; i++) {
+        // Update the current element with the sum of itself and all previous elements
+        v[i] = v[i] + sum; 
+        // Update the sum for the next iteration
+        sum = v[i]; 
     }
+
+    // Print the resulting vector (containing prefix sums)
+    for (int i = 0; i < size; i++) {
+        cout << v[i] << " ";
+    }
+
+    return 0;
 }
