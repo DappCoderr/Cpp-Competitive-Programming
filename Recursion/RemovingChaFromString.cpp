@@ -9,7 +9,7 @@ string f(string &s, int idx, int n){
 }
 
 int main(){
-    string s = "axbscsasdf";
+    string s = "aadsca";
     int n = s.size();
     string a = f(s, 0, n);
     cout<<a;
