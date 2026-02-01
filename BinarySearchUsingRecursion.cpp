@@ -4,7 +4,8 @@ using namespace std;
 
 int binarySearch(vector<int> &input, int target, int low, int high){
     if(low > high) return -1;
-    int mid = (low + high) / 2;
+    //int mid = (low + high) / 2; // this can overflow
+    int mid = low + (high - low) / 2
     if(input[mid] == target) return mid;
     if(input[mid] < target){
         return binarySearch(input, target, mid+1, high);
