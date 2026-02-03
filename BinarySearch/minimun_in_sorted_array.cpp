@@ -19,7 +19,7 @@ int findMinimumInSortedArray(vector<int> &input){
 }
 
 int main(){
-    vector<int> input = {4,5,1,2,3};
+    vector<int> input = {4,5,6,1,2,3};
     int minValue = findMinimumInSortedArray(input);
     cout<<"The min value is: "<<minValue<<endl;
     return 0;
