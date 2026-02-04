@@ -1,33 +1,27 @@
 #include<iostream>
-#include<string>
+#include<vector>
 using namespace std;
 
-// int main(){
-//     string str = "star";
-//     sort(str.begin(), str.end());
-//     cout<<str<<endl;
-// }
-
-string stringAnagram(string &str){
-    vector<int> freq(26,0);
-
-    for(int i=0; i<str.size(); i++){
-        int index = str[i] - 'a';
-        freq[index]+=1;
+bool isAnagram(string &s, string &t){
+    if(s.size() != t.size()){
+        return false;
     }
-
-    int j=0;
+    vector<int>freq(26,0);
+    for(int i=0; i<s.size(); i++){
+        freq[s[i] - 'a']++;
+        freq[t[i] - 'a']--;
+    }
     for(int i=0; i<freq.size(); i++){
-        while(freq[i]--){
-            str[j++] = i + 'a';
+        if(freq[i]!=0){
+            return false;
         }
     }
-
-    return str;
+    return true;
 }
 
 int main(){
-    string str = "star";
-    cout<<stringAnagram(str)<<endl;
+    string s = "anagram";
+    string t = "naagram";
+    cout<<"Is string anagram: "<<isAnagram(s,t)<<endl;
     return 0;
 }
