@@ -4,27 +4,28 @@
 #include <algorithm>
 using namespace std;
 
-
-    int lengthOfLongestSubstring(string s) {
+int lengthOfLongestSubstring(string s) {
+    
+    vector<int> lastIndex(256, -1);
+    
+    int left = 0;
+    int maxLen = 0;
+    
+    for(int right = 0; right < s.length(); right++) {
         
-        vector<int> lastIndex(256, -1);
+        unsigned char ch = s[right];   // SAFE indexing
         
-        int left = 0;
-        int maxLen = 0;
-        
-        for(int right = 0; right < s.length(); right++) {
-            
-            if(lastIndex[s[right]] >= left) {
-                left = lastIndex[s[right]] + 1;
-            }
-            
-            lastIndex[s[right]] = right;
-            
-            maxLen = max(maxLen, right - left + 1);
+        if(lastIndex[ch] >= left) {
+            left = lastIndex[ch] + 1;
         }
         
-        return maxLen;
+        lastIndex[ch] = right;
+        
+        maxLen = max(maxLen, right - left + 1);
     }
+    
+    return maxLen;
+}
 
 int main() {
     
