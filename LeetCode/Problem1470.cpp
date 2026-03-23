@@ -11,7 +11,7 @@ vector<int> shuffle(vector<int>& nums, int n) {
     return result;
 }
 
-int main(){
+int main(){Pr
     vector<int> nums = {1,2,3,4,5,6};
     int n = 3;
     shuffle(nums, n);
